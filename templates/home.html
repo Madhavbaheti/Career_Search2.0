@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>First flask Project</title>
+    <style>
+      /* Reset some default styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Style the header with the background image */
+      h1 {
+        text-align: center;
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+      }
+
+      /* Style the image */
+      #banner {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Style the paragraph */
+      .lead {
+        text-align: center;
+        font-size: 1.2em;
+        margin: 20px auto;
+        max-width: 80%;
+      }
+
+      /* Style the subheading */
+      h2 {
+        text-align: center;
+        font-size: 1.5em;
+        color: #333;
+        margin-top: 20px;
+      }
+
+      /* Style the button container */
+      .button-container {
+        text-align: left;
+        margin-left: 10%;
+      }
+
+      /* Style the button */
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      /* Hover effect for the button */
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        /* Adjust the font size for smaller screens */
+        .lead {
+          font-size: 1em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        /* Center align the image and reduce the padding in the header */
+        #banner {
+          margin: 0 auto;
+        }
+
+        h1 {
+          padding: 10px;
+        }
+
+        /* Adjust font size for smaller screens */
+        h1,
+        .lead,
+        h2 {
+          font-size: 1.2em;
+        }
+
+        /* Center align the button for smaller screens */
+        .button-container {
+          text-align: center;
+          margin-left: 0;
+        }
+        /* Apply styles to the list items */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  font-family: Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+/* Style the job title */
+li:nth-child(odd) {
+  color: #333; /* Text color for job titles */
+  font-weight: bold;
+}
+
+/* Style the job location */
+li:nth-child(even) {
+  color: #777; /* Text color for job locations */
+}
+
+/* Add some spacing between job items */
+br {
+  display: block;
+  margin: 10px 0;
+}
+
+      }
+
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div >
+      <h1>Career Search</h1>
+      <img
+        id="banner"
+        src="../static/cytonn-photography-n95VMLxqM2I-unsplash.jpg"
+        width="80%"
+        height="40%"
+      />
+      <h2>About Career Search</h2>
+      <p class="lead">
+        Company Search is a pioneering platform dedicated to empowering job
+        seekers in their quest for meaningful employment. With a commitment to
+        connecting individuals with their ideal career opportunities, Company
+        Search provides a user-friendly interface that simplifies the job search
+        process. Whether you're a seasoned professional or a recent graduate,
+        our platform offers a comprehensive database of job listings across
+        various industries and locations. Our mission is to bridge the gap
+        between talent and employers, ensuring that each applicant finds a job
+        that aligns with their skills, passions, and aspirations. Join us on
+        your journey to success, and let Company Search be your trusted partner
+        in discovering the perfect career path for you.
+      </p>
+      <h2>Open Positions</h2>
+  
+        <div class="mx-auto" style="width: 60%;">
+            {% for job in jobs %}
+               {% include 'jobitems.html'%}
+            {% endfor %}
+        </div>
+   
+    <div class="text-center">
+        <button>Contact Us</button>
+    </div>
+      
+    </div>
+  </body>
+</html>

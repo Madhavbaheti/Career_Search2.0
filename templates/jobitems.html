@@ -1,0 +1,12 @@
+<div class="border-bottom row" style="margin-bottom:15px">
+    <div class="col-10">
+        <div>{{ job['title'] }}</div>
+    <div><b>Location:</b>{{ job['location'] }}</div>
+    {% if 'salary' in job %}
+        <li>{{ job['salary'] }}</li>
+    {% endif %}
+    </div>
+<div class="col-2"><button type="button" class="btn btn-outline-success" style="margin-bottom:5px">Apply</button></div>
+
+
+</div>
