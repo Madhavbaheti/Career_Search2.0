@@ -12,16 +12,28 @@
         font-family: Arial, sans-serif;
       }
 
-      /* Style the header with the background image */
-      h1 {
-        text-align: center;
-        background-color: #007bff;
-        color: #fff;
-        padding: 20px;
+      /* Style the container */
+      #header-container {
+        position: relative;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        
       }
 
-      /* Style the image */
+      #career-search-heading {
+        position: absolute;
+        top: 0;
+        color: #000;
+        font-weight: bold;
+        padding: 40px;
+        margin: 0;
+        z-index: 1;
+        font-size: 6vw;
+      }
+
       #banner {
+        opacity: 0.8;
         display: block;
         margin: 0 auto;
         max-width: 100%;
@@ -97,36 +109,34 @@
           margin-left: 0;
         }
         /* Apply styles to the list items */
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
 
-li {
-  font-family: Arial, sans-serif;
-  margin-bottom: 10px;
-}
+        li {
+          font-family: Arial, sans-serif;
+          margin-bottom: 10px;
+        }
 
-/* Style the job title */
-li:nth-child(odd) {
-  color: #333; /* Text color for job titles */
-  font-weight: bold;
-}
+        /* Style the job title */
+        li:nth-child(odd) {
+          color: #333; /* Text color for job titles */
+          font-weight: bold;
+        }
 
-/* Style the job location */
-li:nth-child(even) {
-  color: #777; /* Text color for job locations */
-}
+        /* Style the job location */
+        li:nth-child(even) {
+          color: #777; /* Text color for job locations */
+        }
 
-/* Add some spacing between job items */
-br {
-  display: block;
-  margin: 10px 0;
-}
-
+        /* Add some spacing between job items */
+        br {
+          display: block;
+          margin: 10px 0;
+        }
       }
-
     </style>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -136,40 +146,36 @@ br {
     />
   </head>
   <body>
-    <div >
-      <h1>Career Search</h1>
-      <img
-        id="banner"
-        src="../static/cytonn-photography-n95VMLxqM2I-unsplash.jpg"
-        width="80%"
-        height="40%"
-      />
-      <h2>About Career Search</h2>
-      <p class="lead">
-        Company Search is a pioneering platform dedicated to empowering job
-        seekers in their quest for meaningful employment. With a commitment to
-        connecting individuals with their ideal career opportunities, Company
-        Search provides a user-friendly interface that simplifies the job search
-        process. Whether you're a seasoned professional or a recent graduate,
-        our platform offers a comprehensive database of job listings across
-        various industries and locations. Our mission is to bridge the gap
-        between talent and employers, ensuring that each applicant finds a job
-        that aligns with their skills, passions, and aspirations. Join us on
-        your journey to success, and let Company Search be your trusted partner
-        in discovering the perfect career path for you.
-      </p>
-      <h2>Open Positions</h2>
-  
-        <div class="mx-auto" style="width: 60%;">
-            {% for job in jobs %}
-               {% include 'jobitems.html'%}
-            {% endfor %}
+    <div>
+      {% include 'navbar.html'%}
+      <div  class="mb-5" id="header-container">
+        <h1 id="career-search-heading">Career Search</h1>
+        <img
+          id="banner"
+          src="../static/cytonn-photography-n95VMLxqM2I-unsplash.jpg"
+          height="40%"
+        />
+      </div>
+
+      <h2 class="mb-5">About Career Search</h2>
+      <div class="row mb-5 pe-5">
+        <div class="lead col-md-6">
+          Company Search is a pioneering platform dedicated to empowering job seekers in their quest for meaningful employment. With a commitment to connecting individuals with their ideal career opportunities, Company Search provides a user-friendly interface that simplifies the job search process. Whether you're a seasoned professional or a recent graduate, our platform offers a comprehensive database of job listings across various industries and locations. Our mission is to bridge the gap between talent and employers, ensuring that each applicant finds a job that aligns with their skills, passions, and aspirations. Join us on your journey to success, and let Company Search be your trusted partner in discovering the perfect career path for you.
         </div>
-   
-    <div class="text-center">
-        <button>Contact Us</button>
-    </div>
       
+        <img src="../static/teamwork.jpg" class="d-none d-md-block col-6" style="border-radius:30px; width:35%;">
+      </div>
+      
+      <h2>Open Positions</h2>
+
+      <div class="mx-auto" style="width: 60%">
+        {% for job in jobs %} {% include 'jobitems.html'%} {% endfor %}
+      </div>
+
+      <div class="text-center">
+        <button>Contact Us</button>
+        {% include 'footer.html'%}
+      </div>
     </div>
   </body>
 </html>
