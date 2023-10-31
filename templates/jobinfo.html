@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .info {
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        font-size: 24px;
+        color: #333;
+      }
+
+      div {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .application-form {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .application-form h2 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      .error-message {
+        font-weight: bold;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      {% include 'navbar.html'%}
+      <div class="container">
+        <div class="info">
+          <h3>Title</h3>
+          <div>{{job.title}}</div>
+
+          <h3>Location</h3>
+          <div>{{job.location}}</div>
+
+          <h3>Requirements</h3>
+          <div>{{job.requirements}}</div>
+
+          <h3>Responsibilities</h3>
+          <ul>
+            {% for line in job.responsiblities.split(".") %} {% if line.strip()
+            %}
+            <li>{{ line }}</li>
+            {% endif %} {% endfor %}
+          </ul>
+
+          <h3>Salary</h3>
+          <div class="salary">
+            <div class="currency">{{ job.currency }}</div>
+            {{ job.salary }}
+          </div>
+        </div>
+        {% if email_already_used %}
+          <div class="error-message">Email already used. Please use a different email.</div>
+        {% endif %}
+        <div class="application-form">
+          {% include 'application_form.html' %}
+        </div>
+      </div>
+    </div>
+  </body>
+  
+</html>

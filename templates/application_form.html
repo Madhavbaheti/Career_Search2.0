@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Application Form Criteria</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 60%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            max-height: 150px; /* Adjust as needed */
+            resize: vertical;
+            overflow-y: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"] {
+            width: 60%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action='/jobs/{{job['id']}}/apply' method="post">
+
+        <label for="full_name">Full Name:</label>
+        <input type="text" id="full_name" name="full_name" required>
+        <br>
+        
+        <label for="email">Email:</label>
+        <input type="email" required id="email" name="email" required>
+        <br>
+        
+        <label for="linkedin_url">LinkedIn URL:</label>
+        <input type="text" id="linkedin_url" name="linkedin_url" required>
+        <br>
+        
+        <label for="education">Education:</label>
+        <textarea id="education" name="education" rows="4" maxlength="200" required></textarea>
+        <br>
+        
+        <label for="experience">Experience:</label>
+        <textarea id="experience" name="experience" rows="4" maxlength="200" required></textarea>
+        <br>
+        
+        <label for="resume_url">Resume URL:</label>
+        <input type="url" id="resume_url" name="resume_url" required>
+        <br>
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>

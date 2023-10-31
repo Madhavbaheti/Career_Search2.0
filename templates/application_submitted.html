@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Confirmation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #27ae60;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        /* Add some style to the links */
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Add style for the URL */
+        .url-container {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html'%}
+    <div class="container">
+        <p>Your application for the role "{{job['title']}}" has been submitted. Thank You</p>
+        <div>
+            <h2>Full Name</h2>
+            <div>{{application['full_name']}}</div>
+            <h2>Email</h2>
+            <div>{{application['email']}}</div>
+            <h2>LinkedIn URL</h2>
+            <div style="word-break: break-all;">{{application['linkedin_url']}}</div>
+            <h2>Education</h2>
+            <div>{{application['education']}}</div>
+            <h2>Resume URL</h2>
+            <div style="word-break: break-all;">{{application['resume_url']}}</div>
+            <h2>Experience</h2>
+            <div>{{application['experience']}}</div>
+        </div>
+        
+
+    </div>
+</body>
+</html>
