@@ -131,12 +131,26 @@
           color: #777; /* Text color for job locations */
         }
 
-        /* Add some spacing between job items */
         br {
           display: block;
           margin: 10px 0;
         }
+        
       }
+      .appear {
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  opacity: 0;
+  -webkit-transform: translateY(40px);
+          transform: translateY(40px);
+}
+.appear.inview {
+  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
     </style>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -157,15 +171,15 @@
         />
       </div>
 
-      <h2 class="mb-5">About Career Search</h2>
+      <div class="appear"><h2 class="mb-5 ">About Career Search</h2>
       <div class="row mb-5 pe-5">
-        <div class="lead col-md-6">
+        <div class="lead col-md-6 ">
           Company Search is a pioneering platform dedicated to empowering job seekers in their quest for meaningful employment. With a commitment to connecting individuals with their ideal career opportunities, Company Search provides a user-friendly interface that simplifies the job search process. Whether you're a seasoned professional or a recent graduate, our platform offers a comprehensive database of job listings across various industries and locations. Our mission is to bridge the gap between talent and employers, ensuring that each applicant finds a job that aligns with their skills, passions, and aspirations. Join us on your journey to success, and let Company Search be your trusted partner in discovering the perfect career path for you.
         </div>
       
         <img src="../static/teamwork.jpg" class="d-none d-md-block col-6" style="border-radius:30px; width:35%;">
       </div>
-      
+    </div>
       <h2>Open Positions</h2>
 
       <div class="mx-auto" style="width: 60%">
@@ -177,5 +191,19 @@
         {% include 'footer.html'%}
       </div>
     </div>
+    <script>
+const appear = document.querySelector('.appear'); 
+const cb = function(entries){
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('inview');
+    }else{
+      entry.target.classList.remove('inview');
+    }
+  });
+}
+const io = new IntersectionObserver(cb);
+io.observe(appear);
+    </script>
   </body>
 </html>
